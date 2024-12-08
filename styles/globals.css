@@ -20,6 +20,7 @@ h5,
 h6,
 p {
   margin: 0;
+  /* font-size: 0px; */
 }
 
 ul {
@@ -28,7 +29,9 @@ ul {
   list-style: none;
 }
 
-picture {
+picture,
+blockquote,
+q {
   margin: 0;
   padding: 0;
 }
