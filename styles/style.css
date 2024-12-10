@@ -35,18 +35,12 @@ margin-block-start вместо margin-top или border-inline-end вместо
   font-size: var(--main-size-font);
   width: 1024px;
   margin: auto;
-  /* fix center */
-  /* padding: var(--padding); */
-  /* нужно добавить правильные отступы для разных экранов
-     пока возможно не критично лучше задавать для блоков по отдельности
-   */
 }
 
 .header {
   /* recalculate */
   background-image: var(--background-image-header);
   background-position: center center;
-
   display: grid;
   grid-template-columns: repeat(3, 315px);
   /* 945px + 60 = 1105 */

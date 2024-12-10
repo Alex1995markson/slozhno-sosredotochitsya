@@ -11,17 +11,17 @@ TODO: Нужно часть стилей которые касаются офо�
 :root {
   --background-color: #FFF1F7;
   --background-color-small-block: #FF8DCB;
+
+  --color-border: #353430;
   --color-header: #FFC2E6;
   --color: #353430;
   --color-text: #353430;
-  --color-border: #353430;
+  --color-text-article: #353430;
 
   --main-size-font: 18px;
   --font-family: IBM Plex Mono, monospace;
-  --color-text-article: #353430;
 
   --background-image-header: url("../images/cover-image-light.png");
-
 
   --margin-block-end: 60px;
   --padding: 20px 20px;
