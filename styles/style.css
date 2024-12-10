@@ -31,8 +31,11 @@ margin-block-start вместо margin-top или border-inline-end вместо
   background-color: var(--background-color);
   color: var(--color);
   font-family: var(--font-family);
-  min-width: 1024px;
+  /* min-width: 1024px; */
   font-size: var(--main-size-font);
+  width: 1024px;
+  margin: auto;
+  /* fix center */
   /* padding: var(--padding); */
   /* нужно добавить правильные отступы для разных экранов
      пока возможно не критично лучше задавать для блоков по отдельности
@@ -43,15 +46,17 @@ margin-block-start вместо margin-top или border-inline-end вместо
   /* recalculate */
   background-image: var(--background-image-header);
   background-position: center center;
+
   display: grid;
   grid-template-columns: repeat(3, 315px);
   /* 945px + 60 = 1105 */
   grid-template-rows: 299px 180px 299px;
   /* 778px */
   gap: 20px;
-  height: 100vh;
+  /* height: 100vh; */
   padding: var(--padding);
   margin-block-end: var(--margin-block-end);
+  position: relative;
   /* height: 818px; */
 }
 
@@ -134,15 +139,11 @@ margin-block-start вместо margin-top или border-inline-end вместо
   background-color: var(--background-color-small-block);
 }
 
-.corner-box {
-  position: relative;
-}
-
 .corner-box_top-right::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 20px;
+  right: 20px;
   width: 30px;
   height: 30px;
   border-top: 2px solid var(--color-border);
@@ -152,8 +153,8 @@ margin-block-start вместо margin-top или border-inline-end вместо
 .corner-box_bottom-left::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 20px;
+  left: 20px;
   width: 30px;
   height: 30px;
   border-bottom: 2px solid var(--color-border);
@@ -363,6 +364,10 @@ span.card__title {
   justify-content: center;
   align-items: center;
   padding: var(--padding);
+  position: relative;
+  padding: var(--padding);
+  margin-block-end: var(--margin-block-end);
+
   /* может и не надо */
 }
 
@@ -371,4 +376,94 @@ span.card__title {
   vertical-align: middle;
 }
 
+.footer .corner-box_top-right {}
+
 /* media query */
+
+@media (375px <=width <=768px) {
+  .page {
+    /* TODO change */
+    width: 768px;
+    margin: auto;
+  }
+
+  .header {
+    grid-template-columns: 236px 108px 364px;
+    grid-template-rows: 443px 101px 443px;
+    min-height: 768px;
+    /*  когда задаешь высоту для элемента получается почти правильно*/
+  }
+
+  .header__theme-menu {
+    grid-column: 3;
+    justify-self: flex-end;
+    align-self: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+
+  .title-decoration {
+    font-size: 99px;
+    line-height: 99px;
+  }
+
+  .article--layout-two-columns {
+    grid-template-columns: 236px 472px;
+    grid-template-rows: 648px;
+    gap: 20px;
+    height: 648px;
+  }
+
+  .article--three-columns {
+    display: grid;
+    grid-template-columns: 236px 472px;
+    grid-template-rows: 74px 174px 197px 217px;
+    gap: 20px;
+    height: 695px;
+  }
+
+  .article--three-columns>.article__title {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+  .article--three-columns>.card--multitasking_second {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  .article--three-columns>.card--food {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+
+  .article--three-columns>.card--gudget {
+    grid-column: 1 / 3;
+    grid-row: 4;
+  }
+
+  .long {
+    height: 1296px;
+  }
+
+  .tile {
+    margin-top: 0;
+    /* fix must do */
+    padding: var(--padding);
+  }
+
+  .tile__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 229px);
+    grid-template-rows: repeat(3, 260px);
+    grid-auto-flow: dense;
+    gap: 20px;
+    box-sizing: border-box;
+    min-block-size: calc(100vh - 5em);
+    height: 100vh;
+    /* padding: 0 4em 4em; */
+  }
+
+}
