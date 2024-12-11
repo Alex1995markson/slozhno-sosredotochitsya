@@ -31,7 +31,6 @@ margin-block-start вместо margin-top или border-inline-end вместо
   background-color: var(--background-color);
   color: var(--color);
   font-family: var(--font-family);
-  /* min-width: 1024px; */
   font-size: var(--main-size-font);
   width: 1024px;
   margin: auto;
