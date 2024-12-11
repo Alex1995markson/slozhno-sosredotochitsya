@@ -1,31 +1,5 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
-/*
-TODO:
-
-1. Как сделаешь текущий код переходи к провереке эти пунктов;
-2. Ознакомиться с пунктами ниже и поправить
-3. При резиновой верстке возможно попробовать расчитать правильно 
-   grid-template-row, grid-template-column;
-
-
-При вёрстке старайтесь использовать логические свойства там,
-где это возможно. Пишите,
-например,
-margin-block-start вместо margin-top или border-inline-end вместо border-right.
-
-
-Обязательно убедитесь,
-что сайт совпадает с макетом на основных разрешениях,
-а в промежуточных состояниях не ломается и блоки выглядят хорошо. Вспомните про «резиновую» вёрстку.
-
-
-Запланируйте себе время на рефакторинг. Отложите код после окончания работы хотя бы на день. Затем вернитесь и посмотрите,
-можно ли где-то сделать проще и изящнее. Может быть,
-вы увидите,
-что использовали лишние обёртки или стили можно записать короче. Это хорошая привычка на будущее и воспитание в себе критического взгляда на собственную работу.
-*/
-
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   background-color: var(--background-color);
@@ -47,11 +21,9 @@ margin-block-start вместо margin-top или border-inline-end вместо
   grid-template-rows: 299px 180px 299px;
   /* 778px */
   gap: 20px;
-  /* height: 100vh; */
   padding: var(--padding);
   margin-block-end: var(--margin-block-end);
   position: relative;
-  /* height: 818px; */
 }
 
 .header__theme-menu {
@@ -133,6 +105,8 @@ margin-block-start вместо margin-top или border-inline-end вместо
   background-color: var(--background-color-small-block);
 }
 
+/* block with after&before elements */
+
 .corner-box_top-right::after {
   content: '';
   position: absolute;
@@ -168,7 +142,6 @@ margin-block-start вместо margin-top или border-inline-end вместо
   font-family: Arial, sans-serif;
   font-size: 20px;
   color: var(--indicator-color);
-  /* Яркий розовый цвет для текста */
 }
 
 .rec-indicator__dot {
@@ -177,7 +150,6 @@ margin-block-start вместо margin-top или border-inline-end вместо
   background-color: var(--indicator-color);
   border-radius: 50%;
   margin-left: 8px;
-  /* Отступ между текстом и точкой */
   animation: blink 1s infinite;
 }
 
@@ -193,6 +165,8 @@ margin-block-start вместо margin-top или border-inline-end вместо
   }
 }
 
+/* === end === */
+
 /* first article  */
 
 .article {
@@ -205,7 +179,6 @@ margin-block-start вместо margin-top или border-inline-end вместо
   grid-template-columns: 315px 650px;
   grid-template-rows: 508px;
   gap: 20px;
-  height: 508px;
 }
 
 .article__title {
@@ -255,10 +228,9 @@ margin-block-start вместо margin-top или border-inline-end вместо
 
 .article--three-columns {
   display: grid;
-  grid-template-columns: repeat(3, 315px);
-  grid-template-rows: 47px 299px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 6fr;
   gap: 20px;
-  margin-bottom: 160px;
   /* TODO change because margin is not ok */
 }
 
@@ -315,8 +287,6 @@ span.card__title {
   gap: 20px;
   box-sizing: border-box;
   min-block-size: calc(100vh - 5em);
-  height: 100vh;
-  /* padding: 0 4em 4em; */
 }
 
 .tile__item {
@@ -361,16 +331,12 @@ span.card__title {
   position: relative;
   padding: var(--padding);
   margin-block-end: var(--margin-block-end);
-
-  /* может и не надо */
 }
 
 .footer__title {
   text-align: center;
   vertical-align: middle;
 }
-
-.footer .corner-box_top-right {}
 
 /* media query */
 
@@ -412,10 +378,9 @@ span.card__title {
 
   .article--three-columns {
     display: grid;
-    grid-template-columns: 236px 472px;
-    grid-template-rows: 74px 174px 197px 217px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
     gap: 20px;
-    height: 695px;
   }
 
   .article--three-columns>.article__title {
@@ -457,19 +422,132 @@ span.card__title {
     box-sizing: border-box;
     min-block-size: calc(100vh - 5em);
     height: 100vh;
-    /* padding: 0 4em 4em; */
   }
 
 }
 
 @media (max-width: 375px) {
 
-  /* TODO:
-  Чтобы заголовок в шапке красиво адаптировался и при этом хорошо выглядел на больших и маленьких экранах,
-  используйте clamp(). Ниже вы найдёте формулы расчёта размера текста. Посмотрите на неё внимательно и подумайте,
-  почему используются именно такие значения и для какого разрешения применить формулу:
 
-  clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem)
-  clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) Формулы сгенерированы с помощью https: //clamp.font-size.app/. Этот сайт вам пригодится, чтобы адаптировать текст на других разрешениях.
-  */
+  .page {
+    /* TODO change */
+    width: 375px;
+    margin: auto;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr 1fr 2fr;
+    min-height: 668px;
+    /*  когда задаешь высоту для элемента получается почти правильно*/
+  }
+
+  .header__theme-menu {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: flex-end;
+    align-self: center;
+  }
+
+  /* добавить перенос для текста */
+  .header__title {
+    text-align: left;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .header__quote {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    justify-self: center;
+    align-self: center;
+    max-width: 355px;
+    max-height: 117px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+
+  .title-decoration {
+    font-size: 99px;
+    line-height: 99px;
+  }
+
+  .article--layout-two-columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+  }
+
+  .article--three-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+  }
+
+  .article--three-columns>.article__title {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .article--three-columns>.card--multitasking_second {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .article--three-columns>.card--food {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .article--three-columns>.card--gudget {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .long {
+    height: 1796px;
+  }
+
+  .tile {
+    margin-top: 0;
+    padding: var(--padding);
+  }
+
+  .tile__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 355px 1fr 1fr 355px;
+    grid-auto-flow: dense;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+
+  .tile__item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tile__item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .tile__item:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .tile__item:nth-child(4) {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .tile__item:nth-child(5) {
+    grid-column: 1;
+    grid-row: 5;
+  }
 }
