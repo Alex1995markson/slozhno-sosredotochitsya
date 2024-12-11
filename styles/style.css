@@ -11,7 +11,6 @@
 }
 
 .header {
-  /* recalculate */
   background-image: var(--background-image-header);
   background-position: center center;
   background-attachment: fixed;
@@ -62,12 +61,6 @@
 }
 
 .header__theme-menu-button_active {}
-
-.header__theme-menu-button_type_auto {}
-
-.header__theme-menu-button_type_light {}
-
-.header__theme-menu-button_type_dark {}
 
 .header__title {
   text-align: left;
@@ -199,10 +192,6 @@
   padding-block-end: var(--padding-card);
 }
 
-.card--multitasking {}
-
-.card--dopamine {}
-
 .card__title {
   color: var(--color-text);
   font-family: IBM Plex Mono;
@@ -231,7 +220,6 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 6fr;
   gap: 20px;
-  /* TODO change because margin is not ok */
 }
 
 .article--three-columns>.card--multitasking_second {
@@ -409,7 +397,6 @@ span.card__title {
 
   .tile {
     margin-top: 0;
-    /* fix must do */
     padding: var(--padding);
   }
 
@@ -450,7 +437,6 @@ span.card__title {
     align-self: center;
   }
 
-  /* добавить перенос для текста */
   .header__title {
     text-align: left;
     grid-column: 1 / 3;
