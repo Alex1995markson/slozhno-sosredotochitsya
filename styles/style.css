@@ -40,6 +40,7 @@ margin-block-start вместо margin-top или border-inline-end вместо
   /* recalculate */
   background-image: var(--background-image-header);
   background-position: center center;
+  background-attachment: fixed;
   display: grid;
   grid-template-columns: repeat(3, 315px);
   /* 945px + 60 = 1105 */
@@ -459,4 +460,16 @@ span.card__title {
     /* padding: 0 4em 4em; */
   }
 
+}
+
+@media (max-width: 375px) {
+
+  /* TODO:
+  Чтобы заголовок в шапке красиво адаптировался и при этом хорошо выглядел на больших и маленьких экранах,
+  используйте clamp(). Ниже вы найдёте формулы расчёта размера текста. Посмотрите на неё внимательно и подумайте,
+  почему используются именно такие значения и для какого разрешения применить формулу:
+
+  clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem)
+  clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) Формулы сгенерированы с помощью https: //clamp.font-size.app/. Этот сайт вам пригодится, чтобы адаптировать текст на других разрешениях.
+  */
 }
